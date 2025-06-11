@@ -4,19 +4,28 @@ import type { ApiResponse } from "shared/dist";
 
 export const app = new Hono()
 
-.use(cors())
+  .use(cors())
 
-.get("/", (c) => {
-	return c.text("Hello Hono!");
-})
+  .get("/", (c) => {
+    return c.text("Hello Hono!");
+  })
 
-.get("/hello", async (c) => {
-	const data: ApiResponse = {
-		message: "Hello BHVR!",
-		success: true,
-	};
+  .get("/hello", async (c) => {
+    const data: ApiResponse = {
+      message: "It's DuoCart!",
+      success: true,
+    };
 
-	return c.json(data, { status: 200 });
-});
+    return c.json(data, { status: 200 });
+  })
+
+  .post("/hello", async (c) => {
+    const data: ApiResponse = {
+      message: `Hello ${(await c.req.json()).name}`,
+      success: true,
+    };
+
+    return c.json(data, { status: 200 });
+  });
 
 export default app;
