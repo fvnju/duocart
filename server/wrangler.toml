@@ -1,0 +1,16 @@
+name = "nbay"
+main = "src/index.ts"
+compatibility_date = "2025-04-18"
+
+# [observability]
+# enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nbay-db"
+database_id = "80aa020b-eb45-498e-bd09-f818c41ad8df"
+# migrations_dir = "drizzle"
+
+[vars]
+BETTER_AUTH_URL = "http://localhost:8787"
+BETTER_AUTH_SECRET = "On4CoqGVJWmMcIRQqff76zmHvhU4PPqV"

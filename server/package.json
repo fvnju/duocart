@@ -5,9 +5,14 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "bun --watch run src/index.ts && tsc --watch"
+    "dev": "bunx wrangler dev && tsc --watch",
+    "old_dev": "bun --watch run src/index.ts && tsc --watch"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20250610.0",
+    "better-auth": "^1.2.9",
+    "drizzle-kit": "^0.31.1",
+    "drizzle-orm": "^0.44.2",
     "hono": "^4.7.7",
     "shared": "workspace:*"
   },

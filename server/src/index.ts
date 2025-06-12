@@ -1,6 +1,9 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import type { ApiResponse } from "shared/dist";
+import { createAuth } from "./lib/auth";
+import { env } from "hono/adapter";
+import type { D1Database } from "@cloudflare/workers-types";
 
 export const app = new Hono()
 
@@ -21,11 +24,16 @@ export const app = new Hono()
 
   .post("/hello", async (c) => {
     const data: ApiResponse = {
-      message: `Hello ${(await c.req.json()).name}`,
+      message: `Hiiii ${(await c.req.json()).name}`,
       success: true,
     };
 
     return c.json(data, { status: 200 });
+  })
+
+  .on(["POST", "GET"], "/api/auth/**", (c) => {
+    const { DB } = env<{ DB: D1Database }>(c, "workerd");
+    return createAuth(DB).handler(c.req.raw);
   });
 
 export default app;
