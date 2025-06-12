@@ -1,7 +1,7 @@
 import { hcWithType } from "server/dist/client";
 
 export const SERVER_URL =
-  import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
+  import.meta.env.BETTER_AUTH_URL || "http://localhost:8787";
 
 export type ResponseType = Awaited<ReturnType<typeof client.hello.$get>>;
 
