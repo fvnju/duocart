@@ -4,6 +4,7 @@ import CategoryItem from "@/components/ui/category-item";
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import { motion } from "motion/react";
+import { AnimatedHeading, AnimatedText } from "@/components/ui/animated-text";
 
 export default function Home() {
     return (
@@ -25,13 +26,25 @@ export default function Home() {
                                 ease: "easeOut",
                             }}
                             className="flex flex-col gap-4">
-                            <h1 className="font-heading text-6xl text-background">
+                            <AnimatedHeading
+                                as="h1"
+                                className="font-heading text-6xl text-background"
+                                delay={0.3}>
                                 Buying and selling made simple.
-                            </h1>
-                            <p className="font-medium text-background">
+                            </AnimatedHeading>
+                            <AnimatedText
+                                className="font-medium text-background"
+                                delay={0.4}>
                                 Shop for anything and find it fast.
-                            </p>
-                            <motion.div>
+                            </AnimatedText>
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 400,
+                                    damping: 17,
+                                }}>
                                 <Button className="w-min rounded-full p-8 bg-background text-foreground">
                                     Shop Now
                                 </Button>
@@ -73,14 +86,12 @@ export default function Home() {
                     </motion.div>
                 </section>
                 <section className="py-8">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
-                        className="text-lg font-bold">
+                    <AnimatedHeading
+                        as="h2"
+                        className="text-lg font-bold"
+                        delay={0.2}>
                         Explore Our Categories
-                    </motion.h1>
+                    </AnimatedHeading>
                     <div className="flex justify-between h-max py-8">
                         {[
                             "Clothing",
@@ -108,14 +119,12 @@ export default function Home() {
                     </div>
                 </section>
                 <section className="py-8">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
-                        className="text-lg font-bold">
+                    <AnimatedHeading
+                        as="h2"
+                        className="text-lg font-bold"
+                        delay={0.2}>
                         Popular
-                    </motion.h1>
+                    </AnimatedHeading>
                     <div className="flex justify-between h-max py-8">
                         {[1, 2, 3, 4].map((_, i) => (
                                 <ShopItem

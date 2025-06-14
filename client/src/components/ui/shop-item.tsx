@@ -1,5 +1,6 @@
 import { Button } from "./button";
 import { motion } from "motion/react";
+import { AnimatedText, AnimatedSpan } from "./animated-text";
 
 interface ShopItemProps {
     name: string;
@@ -50,9 +51,9 @@ export default function ShopItem({
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{opacity: .8}}
             viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: 1 * 0.1 }}
+            transition={{ duration: 0.4, delay: 1 * 0.1 }}
+            whileHover={{ scale: 1.05 }}
             className="w-full basis-1/5 cursor-pointer group">
             <div
                 className="w-full"
@@ -66,22 +67,33 @@ export default function ShopItem({
                         backgroundRepeat: "no-repeat",
                     }}></div>
                 <div className="py-4 flex flex-col gap-1">
-                    <h3 className="font-medium group-hover:underline transition-all duration-200">
+                    <AnimatedText
+                        as="h3"
+                        className="font-medium group-hover:underline transition-all duration-200"
+                        delay={0.1}>
                         {name}
-                    </h3>
+                    </AnimatedText>
                     <div className="flex justify-between items-center">
                         <StarRating rating={rating} />
                         <div className="flex items-center gap-2">
-                            <span className="text-lg font-bold">
+                            <AnimatedSpan
+                                className="text-lg font-bold"
+                                delay={0.2}>
                                 {rating.toFixed(1)}
-                            </span>
-                            <span className="text-xs text-secondary-foreground">
+                            </AnimatedSpan>
+                            <AnimatedSpan
+                                className="text-xs text-secondary-foreground"
+                                delay={0.3}>
                                 ({reviews} reviews)
-                            </span>
+                            </AnimatedSpan>
                         </div>
                     </div>
                     <div className="flex justify-between items-center">
-                        <span className="font-bold text-xl">₦{price}</span>
+                        <AnimatedSpan
+                            className="font-bold text-xl"
+                            delay={0.4}>
+                            ₦{price}
+                        </AnimatedSpan>
                         <Button className="bg-foreground aspect-square rounded-full h-12 hover:bg-secondary-foreground">
                             <i className="fa-solid fa-chevron-right text-background"></i>
                         </Button>
