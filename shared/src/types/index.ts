@@ -1,7 +1,7 @@
 export type ApiResponse = {
   message: string;
-  success: true;
-}
+  success: boolean;
+};
 
 export type Item = {
   id: string;

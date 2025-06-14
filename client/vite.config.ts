@@ -4,13 +4,14 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-    plugins: [react(), tailwindcss()],
-    resolve: {
-        alias: {
-            "@": path.resolve(__dirname, "./src"),
-            "@client": path.resolve(__dirname, "./src"),
-            "@server": path.resolve(__dirname, "../server/src"),
-            "@shared": path.resolve(__dirname, "../shared/src"),
-        },
+  plugins: [react(), tailwindcss()],
+  base: process.env.VITE_BASE_URL || "/",
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@client": path.resolve(__dirname, "./src"),
+      "@server": path.resolve(__dirname, "../server/src"),
+      "@shared": path.resolve(__dirname, "../shared/src"),
     },
+  },
 });
