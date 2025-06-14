@@ -31,9 +31,7 @@ export default function Home() {
                             <p className="font-medium text-background">
                                 Shop for anything and find it fast.
                             </p>
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}>
+                            <motion.div>
                                 <Button className="w-min rounded-full p-8 bg-background text-foreground">
                                     Shop Now
                                 </Button>

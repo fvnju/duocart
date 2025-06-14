@@ -57,7 +57,7 @@ export default function Footer() {
                     <i className="fa-brands fa-linkedin fa-xl"></i>
                 </Link>
             </div>
-            <div className="flex justify-center items-center gap-4 py-8 text-secondary-foreground">
+            <div className="flex justify-center items-center gap-4 py-8 text-border [&>*]:hover:underline">
                 <Link to="#">
                     Privacy Policy
                 </Link>
