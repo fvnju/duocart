@@ -1,69 +1,90 @@
 import { motion } from "motion/react";
-import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "./button";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
-    const links = ["Home", "Shop", "Contact", "About"];
+    const [location] = useLocation();
+    const links = [
+        { name: "Home", path: "/" },
+        { name: "Shop", path: "/shop" },
+        { name: "About", path: "/about" },
+        { name: "Contact", path: "/contact" },
+    ];
 
     return (
         <motion.header
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="h-20 flex justify-between border-b"
-        >
-            <div className="aspect-square p-4 border-r">
-                <div className="bg-primary h-full w-full"></div>
-            </div>
+            className="h-20 border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50 w-full">
+            <div className="px-16 w-full h-full flex items-center justify-between">
+                {/* Logo */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    className="flex items-center gap-2">
+                    <div className="aspect-square h-12 rounded-xl bg-primary"></div>
+                    <span className="font-bold text-xl">DuoCart</span>
+                </motion.div>
 
-            <div className="h-full flex items-center">
-                <NavigationMenu>
-                    <NavigationMenuList className="gap-16 px-16">
-                        {links.map((text, i) => (
+                {/* Navigation */}
+                <motion.nav
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                    className="flex items-center gap-4">
+                    <div className="bg-muted/50 rounded-full p-1.5 flex items-center gap-1">
+                        {links.map((link, i) => (
                             <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
+                                key={link.path}
+                                initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{
-                                    delay: 0.6 + i * 0.1,
-                                    duration: 0.4,
-                                    ease: "easeOut",
-                                }}
-                            >
-                                <NavigationMenuItem>
-                                    <Link to="#">{text}</Link>
-                                </NavigationMenuItem>
+                                    duration: 0.3,
+                                    delay: 0.4 + i * 0.1,
+                                }}>
+                                <Link href={link.path}>
+                                    <Button
+                                        variant="ghost"
+                                        className={cn(
+                                            "rounded-full px-6 py-2 text-sm font-medium transition-colors",
+                                            location === link.path
+                                                ? "hover:bg-foreground/100 hover:text-background"
+                                                : "hover:bg-foreground/100 hover:text-background"
+                                        )}>
+                                        {link.name}
+                                    </Button>
+                                </Link>
                             </motion.div>
                         ))}
-                    </NavigationMenuList>
-                </NavigationMenu>
+                    </div>
 
-                <div className="h-full">
-                    {["magnifying-glass", "shopping-cart", "user"].map(
-                        (icon, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{
-                                    delay: 1 + i * 0.1,
-                                    duration: 0.4,
-                                    ease: "easeOut",
-                                }}
-                                className="inline-block h-full"
-                            >
-                                <Button className="aspect-square border-l bg-transparent hover:bg-accent/40 text-foreground rounded-none h-full">
-                                    <i className={`fa-regular fa-${icon}`}></i>
-                                </Button>
-                            </motion.div>
-                        )
-                    )}
-                </div>
+                    {/* Action Buttons */}
+                    <div className="flex items-center gap-2 ml-4">
+                        {["magnifying-glass", "shopping-cart", "user"].map(
+                            (icon, i) => (
+                                <motion.div
+                                    key={icon}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: 0.8 + i * 0.1,
+                                    }}>
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="rounded-full hover:bg-muted/50 p-6">
+                                        <i
+                                            className={`fa-regular fa-${icon}`}></i>
+                                    </Button>
+                                </motion.div>
+                            )
+                        )}
+                    </div>
+                </motion.nav>
             </div>
         </motion.header>
     );

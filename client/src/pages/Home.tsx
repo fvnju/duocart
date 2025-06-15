@@ -5,6 +5,7 @@ import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import { motion } from "motion/react";
 import { AnimatedHeading, AnimatedText } from "@/components/ui/animated-text";
+import { Link } from "wouter";
 
 export default function Home() {
     return (
@@ -85,56 +86,84 @@ export default function Home() {
                         </motion.div>
                     </motion.div>
                 </section>
-                <section className="py-8">
-                    <AnimatedHeading
-                        as="h2"
-                        className="text-lg font-bold"
-                        delay={0.2}>
-                        Explore Our Categories
-                    </AnimatedHeading>
-                    <div className="flex justify-between h-max py-8">
-                        {[
-                            "Clothing",
-                            "Devices",
-                            "Food Items",
-                            "Accessories",
-                            "Prints",
-                        ].map((name, i) => (
-                            <motion.div
-                                key={name}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: i * 0.1 }}
-                                whileHover={{ scale: 1.05 }}>
-                                <CategoryItem
-                                    name={name}
-                                    image={`/images/category-items/${name
-                                        .toLowerCase()
-                                        .replace(" ", "-")}.png`}
-                                    link="#"
-                                />
-                            </motion.div>
-                        ))}
+                <section className="py-16">
+                    <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-2">
+                            <AnimatedHeading
+                                as="h2"
+                                className="text-3xl font-bold"
+                                delay={0.2}>
+                                Explore Our Categories
+                            </AnimatedHeading>
+                        </div>
+
+                        <div className="grid grid-cols-5 gap-8">
+                            {[
+                                {
+                                    name: "Clothing",
+                                    description:
+                                        "Trendy fashion for every style",
+                                    image: "/images/category-items/clothing.png",
+                                },
+                                {
+                                    name: "Devices",
+                                    description: "Latest tech and gadgets",
+                                    image: "/images/category-items/devices.png",
+                                },
+                                {
+                                    name: "Food Items",
+                                    description: "Fresh and packaged foods",
+                                    image: "/images/category-items/food-items.png",
+                                },
+                                {
+                                    name: "Accessories",
+                                    description: "Complete your look",
+                                    image: "/images/category-items/accessories.png",
+                                },
+                                {
+                                    name: "Prints",
+                                    description: "Art and wall decorations",
+                                    image: "/images/category-items/prints.png",
+                                },
+                            ].map((category, i) => (
+                                <motion.div
+                                    key={category.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: i * 0.1,
+                                        ease: "easeOut",
+                                    }}>
+                                    <CategoryItem
+                                        name={category.name}
+                                        description={category.description}
+                                        image={category.image}
+                                        link={`/shop?category=${category.name.toLowerCase()}`}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </section>
                 <section className="py-8">
                     <AnimatedHeading
                         as="h2"
-                        className="text-lg font-bold"
+                        className="text-3xl font-bold"
                         delay={0.2}>
                         Popular
                     </AnimatedHeading>
                     <div className="flex justify-between h-max py-8">
                         {[1, 2, 3, 4].map((_, i) => (
-                                <ShopItem
-                                    name="Clothing"
-                                    id={`item-${i}`}
-                                    image="/"
-                                    price={1200}
-                                    rating={4.5}
-                                    reviews={128}
-                                />
+                            <ShopItem
+                                name="Clothing"
+                                id={`item-${i}`}
+                                image="/"
+                                price={1200}
+                                rating={4.5}
+                                reviews={128}
+                            />
                         ))}
                     </div>
                 </section>

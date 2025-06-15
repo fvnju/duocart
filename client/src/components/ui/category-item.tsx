@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
 import { AnimatedText } from "./animated-text";
+import { motion } from "motion/react";
 
 interface CategoryItemProps {
     name: string;
@@ -8,6 +9,7 @@ interface CategoryItemProps {
     link: string;
     textBackground?: boolean;
     small?: boolean;
+    description?: string;
 }
 
 export default function CategoryItem({
@@ -16,34 +18,56 @@ export default function CategoryItem({
     link,
     textBackground = false,
     small = false,
+    description,
 }: CategoryItemProps) {
     return (
-        <Link to={link}>
-            <div className="flex flex-col items-center w-min gap-4">
-                <div
+        <Link href={link}>
+            <motion.div 
+                className="group relative flex flex-col items-center w-min gap-4"
+                whileHover={{ y: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+                <motion.div
                     className={cn(
-                        "p-4 bg-primary-foreground rounded-full aspect-square",
-                        small ? "w-32" : "w-40"
-                    )}>
+                        "relative overflow-hidden rounded-2xl p-6 transition-all duration-300",
+                        small ? "w-32" : "w-48",
+                        ""
+                    )}
+                    whileHover={{ scale: 1.01}}
+                >
                     <div
-                        className="h-full w-full"
+                        className={cn(
+                            "relative aspect-square w-full transition-transform duration-300 group-hover:scale-110",
+                            "bg-contain bg-center bg-no-repeat"
+                        )}
                         style={{
                             backgroundImage: `url(${image})`,
-                            backgroundPosition: "center",
-                            backgroundSize: "contain",
-                            backgroundRepeat: "no-repeat",
-                        }}></div>
-                </div>
-                <AnimatedText
-                    as="p"
-                    className={cn(
-                        "font-medium",
-                        textBackground ? "text-background" : "text-foreground"
+                        }}
+                    />
+                </motion.div>
+                <div className="flex flex-col items-center gap-1">
+                    <AnimatedText
+                        as="p"
+                        className={cn(
+                            "font-semibold text-lg transition-colors duration-300",
+                            textBackground ? "text-background" : "text-foreground group-hover:text-primary"
+                        )}
+                        delay={0.1}
+                    >
+                        {name}
+                    </AnimatedText>
+                    {description && (
+                        <AnimatedText
+                            as="p"
+                            className="text-sm text-muted-foreground text-center max-w-[200px]"
+                            delay={0.2}
+                        >
+                            {description}
+                        </AnimatedText>
                     )}
-                    delay={0.1}>
-                    {name}
-                </AnimatedText>
-            </div>
+                </div>
+            </motion.div>
         </Link>
     );
 }
+
