@@ -52,7 +52,7 @@ export default function ShopItem({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 1 * 0.1 }}
+            transition={{ duration: 0.2, delay: 0 }}
             whileHover={{ y: -5, animationDuration: .1, animationDelay: 0 }}
             className="w-full basis-1/5 cursor-pointer group">
             <div
