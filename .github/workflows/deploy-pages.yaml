@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Netlify
  
 on:
   # Trigger on pushes to main branch
@@ -37,6 +37,9 @@ jobs:
  
       - name: Build shared package
         run: bun run build:shared
+
+      - name: Build server package
+        run: bun run build:server
  
       - name: Build client
         run: bun run build:client

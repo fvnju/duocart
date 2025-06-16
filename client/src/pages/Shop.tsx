@@ -19,14 +19,14 @@ type SortOption = "price-asc" | "price-desc" | "rating" | "reviews";
 type FilterOption = "price" | "rating" | "reviews" | "all";
 
 export default function Shop() {
-    const [location, setLocation] = useLocation();
+    const [location] = useLocation();
     const [showMessage, setShowMessage] = useState(true);
     const [activeFilters, setActiveFilters] = useState<FilterOption[]>([]);
     const [sortBy, setSortBy] = useState<SortOption>("price-asc");
 
     // Get category from URL if present
     const searchParams = new URLSearchParams(location.split("?")[1]);
-    const category = searchParams.get("category");
+    searchParams.get("category");
 
     const handleFilter = (filter: FilterOption) => {
         setActiveFilters((prev) =>

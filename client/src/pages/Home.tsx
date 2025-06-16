@@ -5,7 +5,6 @@ import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import { motion } from "motion/react";
 import { AnimatedHeading, AnimatedText } from "@/components/ui/animated-text";
-import { Link } from "wouter";
 
 export default function Home() {
     return (
