@@ -17,8 +17,8 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="h-20 border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50 w-full">
-            <div className="px-16 w-full h-full flex items-center justify-between">
+            className="py-4 sticky bg-background top-0 z-50 w-full">
+            <div className="mx-16 px-4 py-4 bg-primary-foreground rounded-3xl h-full flex items-center justify-between">
                 {/* Logo */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -35,7 +35,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
                     className="flex items-center gap-4">
-                    <div className="bg-muted/50 rounded-full p-1.5 flex items-center gap-1">
+                    <div className="bg-background rounded-full p-1.5 flex items-center gap-1">
                         {links.map((link, i) => (
                             <motion.div
                                 key={link.path}
@@ -63,7 +63,7 @@ export default function Header() {
 
                     {/* Action Buttons */}
                     <div className="flex items-center gap-2 ml-4">
-                        {["magnifying-glass", "shopping-cart", "user"].map(
+                        {["shopping-cart", "user"].map(
                             (icon, i) => (
                                 <motion.div
                                     key={icon}
@@ -76,7 +76,7 @@ export default function Header() {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="rounded-full hover:bg-muted/50 p-6">
+                                        className="rounded-full hover:bg-background cursor-pointer p-6">
                                         <i
                                             className={`fa-regular fa-${icon}`}></i>
                                     </Button>
