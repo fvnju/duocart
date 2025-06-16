@@ -22,6 +22,6 @@ jobs:
         run: bun install
 
       - name: Deploy to Netlify
-        run: ntl deploy --prod --filter client
+        run: bunx ntl deploy --prod --filter client
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
