@@ -1,4 +1,4 @@
-import { hcWithType } from "server/dist/client";
+import { hcWithType } from "server/dist/src/client";
 
 export const SERVER_URL =
   import.meta.env.BETTER_AUTH_URL || "http://localhost:8787";
