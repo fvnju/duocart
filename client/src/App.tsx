@@ -10,6 +10,7 @@ import {
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const urlPaths = ["home", "shop"] as const; // update this array to add more url paths
