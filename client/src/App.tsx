@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const urlPaths = ["home", "shop"] as const; // update this array to add more url paths
+const urlPaths = ["home", "shop", "about"] as const; // update this array to add more url paths
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/shop" component={Shop} />
+        <Route path="/about" component={About} />
         <WouterRoute component={NotFound} />
       </Switch>
     </Fragment>

@@ -51,7 +51,7 @@ export default function Header() {
                                         className={cn(
                                             "rounded-full px-6 py-2 text-sm font-medium transition-colors",
                                             location === link.path
-                                                ? "hover:bg-foreground/100 hover:text-background"
+                                                ? "bg-foreground text-background hover:bg-foreground/100 hover:text-background"
                                                 : "hover:bg-foreground/100 hover:text-background"
                                         )}>
                                         {link.name}

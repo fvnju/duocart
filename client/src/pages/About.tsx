@@ -1,17 +1,79 @@
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 
+const storyItems = [
+    {
+        number: "01",
+        title: "Community",
+        description:
+            "Duo Cart supports local sellers, small businesses, and side hustlers by giving them the tools they need to reach customers and grow. We're building a marketplace where everyone's hustle gets the attention it deserves.",
+    },
+    {
+        number: "02",
+        title: "Our Mission",
+        description:
+            "At DuoCart, our mission is to make buying and selling simple, accessible, and enjoyable for everyone. We believe anyone should be able to turn their ideas or needs into reality, whether they're looking to sell products or find what they need fast.",
+    },
+    {
+        number: "03",
+        title: "Our Vision",
+        description:
+            "DuoCart aim to become a global platform where individuals, small businesses, and entrepreneurs can thrive. Our vision is a connected marketplace where opportunity meets simplicity, and everyone can participate without barriers.",
+    },
+    {
+        number: "04",
+        title: "Security & Trust",
+        description:
+            "DuoCart aim to become a global platform where individuals, small businesses, and entrepreneurs can thrive. Our vision is a connected marketplace where opportunity meets simplicity, and everyone can participate without barriers.",
+    },
+    {
+        number: "05",
+        title: "Customer Support",
+        description:
+            "Got questions or issues? Our customer support team is always ready to assist. We're committed to quick responses, helpful solutions, and making sure your Duo Cart experience is smooth from start to finish.",
+    },
+    {
+        number: "06",
+        title: "Technology",
+        description:
+            "Our platform is built using modern, scalable technology that keeps your experience fast and responsive. Whether you're browsing on your phone or managing your store on a desktop, Duo Cart's tech adapts to you.",
+    },
+];
+
+function StoryCard({
+    number,
+    title,
+    description,
+}: {
+    number: string;
+    title: string;
+    description: string;
+}) {
+    return (
+        <div className="flex flex-col gap-8 rounded-3xl bg-primary-foreground p-8 outline-8 transition-colors outline-foreground/5">
+            <div className="flex items-center gap-4">
+                <h1 className="text-7xl font-extrabold text-secondary mr-2">
+                    {number}
+                </h1>
+                <h2 className="text-lg font-semibold text-secondary">
+                    {title}
+                </h2>
+            </div>
+            <p className="text-foreground font-normal">{description}</p>
+        </div>
+    );
+}
+
 export default function About() {
     return (
         <>
             <Header />
-            <main className="bg-[#f8f8fa] min-h-screen pb-8">
+            <main className="bg-[#f8f8fa] min-h-screen pb-8 px-16 w-full">
                 {/* Top Banner */}
-                <section className="max-w-4xl mx-auto rounded-2xl mt-8 mb-8 p-0 overflow-hidden">
+                <section className="w-full mx-auto rounded-2xl mt-8 mb-8 p-0 overflow-hidden">
                     <div className="bg-[#4bb0fa] px-8 py-6 rounded-2xl flex flex-col items-center">
                         <h1
-                            className="text-4xl font-extrabold text-white drop-shadow mb-2 text-center"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}>
+                            className="text-4xl font-extrabold text-white drop-shadow mb-2 text-center fnt-heading">
                             About Us
                         </h1>
                         <p className="text-white text-center text-base font-medium max-w-2xl">
@@ -25,7 +87,7 @@ export default function About() {
                 </section>
 
                 {/* About DuoCart Section */}
-                <section className="max-w-5xl mx-auto bg-white rounded-2xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
+                <section className="w-full bg-white rounded-2xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
                     <div className="flex-1">
                         <h2 className="text-xl font-bold mb-2">
                             About DuoCart
@@ -71,118 +133,15 @@ export default function About() {
                 </section>
 
                 {/* Our Story Section */}
-                <section className="max-w-6xl mx-auto px-2">
-                    <h2 className="text-xl font-bold mb-6">Our Story</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* 01 Community */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    01
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Community
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                Duo Cart supports local sellers, small
-                                businesses, and side hustlers by giving them the
-                                tools they need to reach customers and grow.
-                                We're building a marketplace where everyone's
-                                hustle gets the attention it deserves.
-                            </p>
-                        </div>
-                        {/* 02 Our Mission */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    02
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Our Mission
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                At DuoCart, our mission is to make buying and
-                                selling simple, accessible, and enjoyable for
-                                everyone. We believe anyone should be able to
-                                turn their ideas or needs into reality, whether
-                                they're looking to sell products or find what
-                                they need fast.
-                            </p>
-                        </div>
-                        {/* 03 Our Vision */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    03
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Our Vision
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                DuoCart aim to become a global platform where
-                                individuals, small businesses, and entrepreneurs
-                                can thrive. Our vision is a connected
-                                marketplace where opportunity meets simplicity,
-                                and everyone can participate without barriers.
-                            </p>
-                        </div>
-                        {/* 04 Security & Trust */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    04
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Security & Trust
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                DuoCart aim to become a global platform where
-                                individuals, small businesses, and entrepreneurs
-                                can thrive. Our vision is a connected
-                                marketplace where opportunity meets simplicity,
-                                and everyone can participate without barriers.
-                            </p>
-                        </div>
-                        {/* 05 Customer Support */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    05
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Customer Support
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                Got questions or issues? Our customer support
-                                team is always ready to assist. We're committed
-                                to quick responses, helpful solutions, and
-                                making sure your Duo Cart experience is smooth
-                                from start to finish.
-                            </p>
-                        </div>
-                        {/* 05 Technology */}
-                        <div>
-                            <div className="flex items-center mb-2">
-                                <span className="text-3xl font-extrabold text-[#8d7ae7] mr-2">
-                                    05
-                                </span>
-                                <span className="text-lg font-semibold text-[#8d7ae7]">
-                                    Technology
-                                </span>
-                            </div>
-                            <p className="text-gray-700 text-base">
-                                Our platform is built using modern, scalable
-                                technology that keeps your experience fast and
-                                responsive. Whether you're browsing on your
-                                phone or managing your store on a desktop, Duo
-                                Cart's tech adapts to you.
-                            </p>
-                        </div>
+                <section className="w-full flex flex-col gap-16">
+                    <h2 className="text-3xl font-bold">Our Story</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-24">
+                        {storyItems.map((item, idx) => (
+                            <StoryCard
+                                key={idx}
+                                {...item}
+                            />
+                        ))}
                     </div>
                 </section>
             </main>
