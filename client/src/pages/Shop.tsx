@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { useState, useEffect, useCallback } from "react";
+import { Link, useLocation, useSearchParams } from "wouter";
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import ShopItem from "@/components/ui/shop-item";
@@ -13,20 +13,38 @@ import FilterBar, {
   SortOption,
 } from "@/components/ui/filter-bar";
 
+const categories = [
+  "All",
+  "Clothing",
+  "Devices",
+  "Food Items",
+  "Accessories",
+  "Prints",
+] as const;
+
 export default function Shop() {
+  const [searchParams] = useSearchParams();
+
   const [location, setLocation] = useLocation();
   const [showMessage, setShowMessage] = useState(true);
   const [filters, setFilters] = useState<FilterState>(initialFilterState);
   const [sortBy, setSortBy] = useState<SortOption>("price-asc");
 
-  // Get category from URL if present, otherwise use "All"
-  const searchParams = new URLSearchParams(location.split("?")[1]);
-  const urlCategory = searchParams.get("category") || "All";
-  const [selectedCategory, setSelectedCategory] = useState(urlCategory);
+  const getURLCategory = useCallback((): (typeof categories)[number] => {
+    const urlCategory = searchParams.get("category");
+    if (categories.includes(urlCategory as (typeof categories)[number])) {
+      return urlCategory as (typeof categories)[number];
+    }
+    return "All";
+  }, [searchParams]);
+
+  const urlCategory = getURLCategory();
+  const [selectedCategory, setSelectedCategory] =
+    useState<(typeof categories)[number]>(urlCategory);
 
   // Update URL when category changes
-  const handleCategorySelect = (category: string) => {
-    const newSearchParams = new URLSearchParams(searchParams);
+  const handleCategorySelect = (category: (typeof categories)[number]) => {
+    const newSearchParams = new URLSearchParams(location.split("?")[1]);
     if (category === "All") {
       newSearchParams.delete("category");
     } else {
@@ -40,23 +58,15 @@ export default function Shop() {
 
   // Update state when URL changes
   useEffect(() => {
-    const currentParams = new URLSearchParams(location.split("?")[1]);
-    const newCategory = currentParams.get("category") || "All";
+    const newCategory = getURLCategory();
     setSelectedCategory(newCategory);
-  }, [location]);
+  }, [location, getURLCategory]);
 
   return (
     <>
       <Header />
       <CategoryBar
-        categories={[
-          "All",
-          "Clothing",
-          "Devices",
-          "Food Items",
-          "Accessories",
-          "Prints",
-        ]}
+        categories={categories}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
       />
