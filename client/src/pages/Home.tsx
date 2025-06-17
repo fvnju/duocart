@@ -5,6 +5,7 @@ import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import { motion } from "motion/react";
 import { AnimatedHeading, AnimatedText } from "@/components/ui/animated-text";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
     return (
@@ -18,8 +19,8 @@ export default function Home() {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         className="rounded-3xl from-accent to-secondary-foreground to-100% flex flex-col items-center justify-center px-16 h-[65dvh]">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{
                                 duration: 0.6,
                                 delay: 0.2,
@@ -33,13 +34,19 @@ export default function Home() {
                                 Buying and selling made simple.
                             </AnimatedHeading>
                             <AnimatedText
-                                className="font-medium text-muted/50"
+                                className="font-medium text-foreground"
                                 delay={0.4}>
                                 Shop for anything and find it fast.
                             </AnimatedText>
-                            <Button className="w-min rounded-full p-8 bg-foreground text-background">
-                                Shop Now
-                            </Button>
+                            <div className="relative w-2xl px-2 py-2 flex items-center rounded-full bg-primary-foreground text-foreground">
+                                <i className="fa-solid fa-magnifying-glass fa-lg ml-2"></i>
+                                <Input
+                                    type="text"
+                                    placeholder="Search products..."
+                                    className="rounded-full h-12 shadow-none focus-visible:ring-0 text-foreground border-none"
+                                />
+                                <Button className="rounded-full h-full hover:opacity-90">Search</Button>
+                            </div>
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}

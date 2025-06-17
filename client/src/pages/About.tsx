@@ -68,21 +68,29 @@ export default function About() {
     return (
         <>
             <Header />
-            <main className="bg-[#f8f8fa] min-h-screen pb-8 px-16 w-full">
+            <main className="flex flex-col w-full gap-16 px-16 pb-16">
                 {/* Top Banner */}
-                <section className="w-full mx-auto rounded-2xl mt-8 mb-8 p-0 overflow-hidden">
-                    <div className="bg-[#4bb0fa] px-8 py-6 rounded-2xl flex flex-col items-center">
-                        <h1
-                            className="text-4xl font-extrabold text-white drop-shadow mb-2 text-center fnt-heading">
-                            About Us
+                <section className="w-full flex items-center rounded-2xl overflow-hidden h-96">
+                    <div className="px-8 py-6 gap-8 rounded-2xl flex flex-col h-full w-full">
+                        <h1 className="text-8xl uppercase font-heading">
+                            About
                         </h1>
-                        <p className="text-white text-center text-base font-medium max-w-2xl">
-                            Welcome to DuoCart, where we connects buyers and
-                            sellers,
-                            <br />
-                            making it simple for anyone to trade anything,
-                            anytime..
-                        </p>
+                        <div className="flex w-full gap-8">
+                            <div className="basis-1/3 flex flex-col gap-8">
+                                <h1 className="text-8xl uppercase font-heading">
+                                    Us
+                                </h1>
+                                <p>
+                                    Welcome to DuoCart, where we connects buyers
+                                    and sellers, making it simple for anyone to
+                                    trade anything, anytime.
+                                </p>
+                            </div>
+                            <div className="flex basis-2/3 gap-8 h-full">
+                                <div className="bg-foreground h-full rounded-3xl flex-1"></div>
+                                <div className="bg-foreground h-full rounded-3xl flex-1"></div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
