@@ -80,7 +80,7 @@ export default function About() {
                                 <h1 className="text-8xl uppercase font-heading">
                                     Us
                                 </h1>
-                                <p>
+                                <p className="text-muted-foreground">
                                     Welcome to DuoCart, where we connects buyers
                                     and sellers, making it simple for anyone to
                                     trade anything, anytime.
@@ -95,9 +95,9 @@ export default function About() {
                 </section>
 
                 {/* About DuoCart Section */}
-                <section className="w-full bg-white rounded-2xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
-                    <div className="flex-1">
-                        <h2 className="text-xl font-bold mb-2">
+                <section className="w-full bg-primary-foreground rounded-3xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
+                    <div className="flex-1 flex flex-col gap-4">
+                        <h2 className="text-3xl font-bold">
                             About DuoCart
                         </h2>
                         <p className="text-base text-gray-700">
@@ -112,30 +112,9 @@ export default function About() {
                             product.
                         </p>
                     </div>
-                    <div className="flex-1 flex justify-center">
+                    <div className="flex justify-center flex-1">
                         {/* Placeholder for stars image */}
-                        <div className="w-64 h-64 rounded-xl bg-[#4bb0fa] flex items-center justify-center overflow-hidden">
-                            <svg
-                                width="100%"
-                                height="100%"
-                                viewBox="0 0 256 256"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect
-                                    width="256"
-                                    height="256"
-                                    fill="#4bb0fa"
-                                />
-                                <g>
-                                    <g fill="#fff">
-                                        <polygon points="40,60 44,72 56,72 46,80 50,92 40,84 30,92 34,80 24,72 36,72" />
-                                        <polygon points="200,40 204,52 216,52 206,60 210,72 200,64 190,72 194,60 184,52 196,52" />
-                                        <polygon points="120,120 124,132 136,132 126,140 130,152 120,144 110,152 114,140 104,132 116,132" />
-                                        <polygon points="180,180 184,192 196,192 186,200 190,212 180,204 170,212 174,200 164,192 176,192" />
-                                        <polygon points="60,180 64,192 76,192 66,200 70,212 60,204 50,212 54,200 44,192 56,192" />
-                                    </g>
-                                </g>
-                            </svg>
+                        <div className="w-full h-96 rounded-3xl bg-foreground flex items-center justify-center overflow-hidden">
                         </div>
                     </div>
                 </section>
