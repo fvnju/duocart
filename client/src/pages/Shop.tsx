@@ -70,7 +70,7 @@ export default function Shop() {
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
       />
-      <div className="px-16 flex-col w-full flex min-h-screen">
+      <div className="px-4 md:px-8 lg:px-16 flex-col w-full flex min-h-screen">
         {/* Dismissible Message */}
         <AnimatePresence>
           {showMessage && (
@@ -78,11 +78,11 @@ export default function Shop() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="relative mt-4 p-2 px-4 rounded-full bg-secondary-foreground text-background"
+              className="relative mt-4 p-2 px-2 md:px-4 rounded-full bg-secondary-foreground text-background"
             >
-              <div className="flex items-center justify-between px-4">
-                <div className="flex items-center gap-3">
-                  <AnimatedText className="text-sm flex gap-2 items-center">
+              <div className="flex items-center justify-between px-2 md:px-4">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <AnimatedText className="text-xs md:text-sm flex gap-1 md:gap-2 items-center">
                     <i className="fa-solid fa-info-circle"></i>
                     <span>
                       Want to sell items instead? Click{" "}
@@ -106,7 +106,7 @@ export default function Shop() {
           )}
         </AnimatePresence>
 
-        <section className="flex flex-col w-full py-8">
+        <section className="flex flex-col w-full py-4 md:py-8">
           {/* Filters and Sort */}
           <FilterBar
             filters={filters}
@@ -116,7 +116,7 @@ export default function Shop() {
           />
 
           {/* Products Grid */}
-          <div className="grid grid-cols-4 gap-8 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 py-4 md:py-8">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((_, i) => (
               <ShopItem
                 key={i}

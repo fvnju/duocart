@@ -20,9 +20,12 @@ export default function CategoryBar<const T extends readonly string[]>({
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className={cn("px-16 flex gap-2 flex-wrap justify-between", className)}
+      className={cn(
+        "px-4 md:px-8 lg:px-16 flex gap-2 flex-wrap justify-between",
+        className
+      )}
     >
-      <div className="p-4 w-full flex justify-between rounded-3xl bg-primary-foreground">
+      <div className="p-2 md:p-4 w-full flex flex-wrap justify-center md:justify-between gap-2 rounded-3xl bg-primary-foreground">
         {categories.map((category, index) => (
           <motion.div
             key={category}
@@ -37,7 +40,7 @@ export default function CategoryBar<const T extends readonly string[]>({
               variant={selectedCategory === category ? "default" : "ghost"}
               onClick={() => onCategorySelect?.(category)}
               className={cn(
-                "transition-colors rounded-full hover:bg-background cursor-pointer select-none",
+                "transition-colors rounded-full hover:bg-background cursor-pointer select-none text-sm md:text-base",
                 selectedCategory === category &&
                   "bg-foreground text-background hover:bg-foreground"
               )}
