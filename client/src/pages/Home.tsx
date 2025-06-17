@@ -67,7 +67,7 @@ export default function Home() {
                 <div className="flex justify-between w-full">
                   {["Clothing", "Devices", "Food Items"].map((name, i) => (
                     <motion.div
-                      key={name}
+                      key={`${name}+top`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
@@ -159,6 +159,7 @@ export default function Home() {
             <div className="flex justify-between h-max py-8">
               {[1, 2, 3, 4].map((_, i) => (
                 <ShopItem
+                  key={`item+clothing${i}`}
                   name="Clothing"
                   id={`item-${i}`}
                   image="/"
