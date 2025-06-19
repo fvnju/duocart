@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import CartItem, { CartItemProps } from "@/components/ui/cart-item";
@@ -28,8 +27,6 @@ const initialCart: CartItemProps[] = [
 ];
 
 export default function Cart() {
-    const [showMessage, setShowMessage] = useState(true);
-
     return (
         <>
             <Header />
