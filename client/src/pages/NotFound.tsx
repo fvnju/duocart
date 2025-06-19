@@ -18,7 +18,7 @@ export default function NotFound() {
                         className="relative">
                         <AnimatedHeading
                             as="h1"
-                            className="text-9xl font-bold text-primary"
+                            className="text-9xl font-heading font-bold text-primary"
                             delay={0.2}>
                             404
                         </AnimatedHeading>

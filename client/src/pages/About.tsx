@@ -1,5 +1,6 @@
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
+import { motion } from "motion/react";
 
 const storyItems = [
     {
@@ -50,17 +51,39 @@ function StoryCard({
     description: string;
 }) {
     return (
-        <div className="flex flex-col gap-8 rounded-3xl bg-primary-foreground p-8 outline-8 transition-colors outline-foreground/5">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="flex flex-col gap-8 rounded-3xl bg-primary-foreground p-8 outline-8 transition-colors outline-foreground/5">
             <div className="flex items-center gap-4">
-                <h1 className="text-7xl font-extrabold text-secondary mr-2">
+                <motion.h1
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-7xl font-extrabold text-secondary mr-2">
                     {number}
-                </h1>
-                <h2 className="text-lg font-semibold text-secondary">
+                </motion.h1>
+                <motion.h2
+                    initial={{ x: -10, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-lg font-semibold text-secondary">
                     {title}
-                </h2>
+                </motion.h2>
             </div>
-            <p className="text-foreground font-normal">{description}</p>
-        </div>
+            <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="text-foreground font-normal">
+                {description}
+            </motion.p>
+        </motion.div>
     );
 }
 
@@ -70,37 +93,89 @@ export default function About() {
             <Header />
             <main className="flex flex-col w-full gap-16 px-16 pb-16">
                 {/* Top Banner */}
-                <section className="w-full flex items-center rounded-2xl overflow-hidden h-96">
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full flex items-center rounded-2xl overflow-hidden h-96">
                     <div className="px-8 py-6 gap-8 rounded-2xl flex flex-col h-full w-full">
-                        <h1 className="text-8xl uppercase font-heading">
+                        <motion.h1
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.1 }}
+                            className="text-8xl uppercase font-heading">
                             About
-                        </h1>
+                        </motion.h1>
                         <div className="flex w-full gap-8">
-                            <div className="basis-1/3 flex flex-col gap-8">
-                                <h1 className="text-8xl uppercase font-heading">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.2 }}
+                                className="basis-1/3 flex flex-col gap-8">
+                                <motion.h1
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: 0.3 }}
+                                    className="text-8xl uppercase font-heading">
                                     Us
-                                </h1>
-                                <p className="text-muted-foreground">
+                                </motion.h1>
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: 0.4 }}
+                                    className="text-muted-foreground">
                                     Welcome to DuoCart, where we connects buyers
                                     and sellers, making it simple for anyone to
                                     trade anything, anytime.
-                                </p>
-                            </div>
-                            <div className="flex basis-2/3 gap-8 h-full">
-                                <div className="bg-foreground h-full rounded-3xl flex-1"></div>
-                                <div className="bg-foreground h-full rounded-3xl flex-1"></div>
-                            </div>
+                                </motion.p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.2 }}
+                                className="flex basis-2/3 gap-8 h-full">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: 0.3 }}
+                                    className="bg-foreground h-full rounded-3xl flex-1"></motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: 0.4 }}
+                                    className="bg-foreground h-full rounded-3xl flex-1"></motion.div>
+                            </motion.div>
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* About DuoCart Section */}
-                <section className="w-full bg-primary-foreground rounded-3xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
-                    <div className="flex-1 flex flex-col gap-4">
-                        <h2 className="text-3xl font-bold">
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full bg-primary-foreground rounded-3xl flex flex-col md:flex-row items-center gap-8 p-8 mb-8 shadow-none">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        className="flex-1 flex flex-col gap-4">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                            className="text-3xl font-bold">
                             About DuoCart
-                        </h2>
-                        <p className="text-base text-gray-700">
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                            className="text-base text-gray-700">
                             DuoCart is built for everyone — whether you're a
                             small business, a casual seller, or someone hunting
                             for the perfect deal. We make buying and selling
@@ -110,27 +185,51 @@ export default function About() {
                             all, no matter your experience level. Simple tools,
                             smooth transactions, and real people behind every
                             product.
-                        </p>
-                    </div>
-                    <div className="flex justify-center flex-1">
+                        </motion.p>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        className="flex justify-center flex-1">
                         {/* Placeholder for stars image */}
-                        <div className="w-full h-96 rounded-3xl bg-foreground flex items-center justify-center overflow-hidden">
-                        </div>
-                    </div>
-                </section>
+                        <div className="w-full h-96 rounded-3xl bg-foreground flex items-center justify-center overflow-hidden"></div>
+                    </motion.div>
+                </motion.section>
 
                 {/* Our Story Section */}
-                <section className="w-full flex flex-col gap-16">
-                    <h2 className="text-3xl font-bold">Our Story</h2>
+                <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full flex flex-col gap-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4 }}
+                        className="text-3xl font-bold">
+                        Our Story
+                    </motion.h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-24">
                         {storyItems.map((item, idx) => (
-                            <StoryCard
+                            <motion.div
                                 key={idx}
-                                {...item}
-                            />
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{
+                                    duration: 0.4,
+                                    delay: idx * 0.05,
+                                    ease: "easeOut",
+                                }}>
+                                <StoryCard {...item} />
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </motion.section>
             </main>
             {/* Footer */}
             <Footer />

@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex justify-between items-center">
                 <div className="flex gap-2 items-center">
                     <div className="aspect-square h-16 p-4">
-                        <div className="bg-primary h-full w-full"></div>
+                        <div className="bg-primary h-full w-full rounded-lg"></div>
                     </div>
                     <span className="font-bold">DuoCart</span>
                 </div>
@@ -57,7 +57,7 @@ export default function Footer() {
                     <i className="fa-brands fa-linkedin fa-xl"></i>
                 </Link>
             </div>
-            <div className="flex justify-center items-center gap-4 py-8 text-border [&>*]:hover:underline">
+            <div className="flex justify-center text-sm items-center gap-4 py-8 text-border [&>*]:hover:underline">
                 <Link to="#">
                     Privacy Policy
                 </Link>
