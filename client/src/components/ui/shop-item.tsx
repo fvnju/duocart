@@ -11,6 +11,10 @@ interface ShopItemProps {
     reviews: number;
 }
 
+export interface StarRatingProps {
+    rating: number;
+}
+
 export default function ShopItem({
     name = "Clothing",
     id = "0",
@@ -19,9 +23,6 @@ export default function ShopItem({
     reviews = 0,
     price = 1200,
 }: ShopItemProps) {
-    interface StarRatingProps {
-        rating: number;
-    }
 
     function StarRating({ rating }: StarRatingProps) {
         const fullStars = Math.floor(rating);
@@ -90,9 +91,9 @@ export default function ShopItem({
                     </div>
                     <div className="flex justify-between items-center">
                         <AnimatedSpan
-                            className="font-bold text-xl"
+                            className="font-bold text-2xl"
                             delay={0.4}>
-                            ₦{price}
+                            <sup>₦</sup>{" "}{price.toFixed(2)}
                         </AnimatedSpan>
                         <Button className="bg-foreground aspect-square rounded-full h-12 hover:bg-secondary-foreground">
                             <i className="fa-solid fa-chevron-right text-background"></i>

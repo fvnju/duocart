@@ -13,7 +13,7 @@ import FilterBar, {
   SortOption,
 } from "@/components/ui/filter-bar";
 
-const categories = [
+export const categories = [
   "All",
   "Clothing",
   "Devices",

@@ -140,10 +140,10 @@ export default function Header() {
                                         </>
                                     )}
                                 </DropdownMenuGroup>
-                                <DropdownMenuItem className="justify-center bg-foreground text-background hover:!bg-primary-foreground hover:!text-foreground">
+                                <DropdownMenuItem className="justify-center p-0 bg-foreground text-background hover:!bg-primary-foreground hover:!text-foreground">
                                     <Link
                                         href="/cart"
-                                        className="w-full text-center">
+                                        className="w-full text-center p-4">
                                         View Cart
                                     </Link>
                                 </DropdownMenuItem>
