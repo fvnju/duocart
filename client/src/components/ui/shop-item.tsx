@@ -1,6 +1,7 @@
 import { Button } from "./button";
 import { motion } from "motion/react";
 import { AnimatedText, AnimatedSpan } from "./animated-text";
+import { useLocation } from "wouter";
 
 interface ShopItemProps {
     name: string;
@@ -46,6 +47,12 @@ export default function ShopItem({
                 ))}
             </div>
         );
+    }
+
+    const [, setLocation] = useLocation();
+
+    function goToItem() {
+        setLocation(`/item/${id}`);
     }
 
     return (
@@ -95,7 +102,7 @@ export default function ShopItem({
                             delay={0.4}>
                             <sup>₦</sup>{" "}{price.toFixed(2)}
                         </AnimatedSpan>
-                        <Button className="bg-foreground aspect-square rounded-full h-12 hover:bg-secondary-foreground">
+                        <Button className="bg-foreground aspect-square rounded-full h-12 hover:bg-secondary-foreground" onClick={goToItem}>
                             <i className="fa-solid fa-chevron-right text-background"></i>
                         </Button>
                     </div>

@@ -34,7 +34,7 @@ const mockCartItems = [
 ];
 
 export default function Header() {
-    const [location] = useLocation();
+    const [location, setLocation] = useLocation();
     const links = [
         { name: "Home", path: "/" },
         { name: "Shop", path: "/shop" },
@@ -170,15 +170,15 @@ export default function Header() {
                             <DropdownMenuContent
                                 className="gap-2 flex-col flex"
                                 align="end">
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLocation('/account?tab=profile')}>
                                     <i className="fa-regular fa-user mr-2"></i>
                                     Profile
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLocation('/account?tab=settings')}>
                                     <i className="fa-solid fa-gear mr-2"></i>
                                     Settings
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLocation('/')}>
                                     <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
                                     Logout
                                 </DropdownMenuItem>

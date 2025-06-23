@@ -70,7 +70,7 @@ export default function Shop() {
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
       />
-      <div className="px-4 md:px-8 lg:px-16 flex-col w-full flex min-h-screen">
+      <main className="px-4 md:px-8 lg:px-16 flex-col w-full flex min-h-screen">
         {/* Dismissible Message */}
         <AnimatePresence>
           {showMessage && (
@@ -130,7 +130,7 @@ export default function Shop() {
             ))}
           </div>
         </section>
-      </div>
+      </main>
       <Footer />
     </>
   );

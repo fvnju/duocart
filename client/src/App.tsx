@@ -14,9 +14,11 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import ItemScreen from "./pages/ItemScreen";
+import Dashboard from "./pages/Dashboard";
+import Account from "./pages/Account";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const urlPaths = ["home", "shop", "about", "contact", "cart", "item", "item/:id"] as const; // update this array to add more url paths
+const urlPaths = ["home", "shop", "about", "contact", "cart", "item", "item/:id", "dashboard", "account"] as const; // update this array to add more url paths
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/cart" component={Cart} />
         <Route path="/item/:id" component={ItemScreen} />
         <Route path="/item" component={NotFound} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/account" component={Account} />
         <WouterRoute component={NotFound} />
       </Switch>
     </Fragment>

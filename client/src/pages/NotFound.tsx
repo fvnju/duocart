@@ -9,7 +9,7 @@ export default function NotFound() {
     return (
         <>
             <Header />
-            <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center p-16">
+            <main className="min-h-[calc(100vh-5rem)] flex items-center justify-center p-16">
                 <div className="flex flex-col items-center gap-8 text-center max-w-2xl">
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
@@ -87,7 +87,7 @@ export default function NotFound() {
                         </Link>
                     </motion.div>
                 </div>
-            </div>
+            </main>
             <Footer />
         </>
     );

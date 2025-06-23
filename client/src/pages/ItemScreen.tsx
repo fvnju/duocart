@@ -1,5 +1,4 @@
 import CategoryBar from "@/components/ui/category-bar";
-import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
 import { categories } from "./Shop";
 import { useCallback, useEffect, useState } from "react";
@@ -82,14 +81,19 @@ export default function ItemScreen() {
     return (
         <>
             <Header />
-            <CategoryBar
-                categories={categories}
-                selectedCategory={selectedCategory}
-                onCategorySelect={handleCategorySelect}
-            />
-            <div className="py-8 px-16">
+            <div className="sticky top-24 bg-background py-4">
+                <CategoryBar
+                    categories={categories}
+                    selectedCategory={selectedCategory}
+                    onCategorySelect={handleCategorySelect}
+                />
+            </div>
+
+            {/* Main Content Container */}
+            <main className="py-8 px-16">
                 <section className="flex flex-col w-full gap-8">
-                    <div>
+                    {/* Breadcrumb Navigation */}
+                    <div className="flex flex-col gap-4">
                         <h5 className="font-semibold flex gap-12 items-center">
                             <span>Shop</span>
                             <i className="fa-solid fa-chevron-right"></i>
@@ -98,17 +102,32 @@ export default function ItemScreen() {
                             <span className="text-muted-foreground">Air</span>
                         </h5>
                     </div>
+
+                    {/* Product Details Container */}
                     <div className="flex justify-between gap-12 [&>div]:rounded-4xl min-h-[75vh]">
-                        <div className="flex-1">
+                        {/* Product Image Section */}
+                        <div className="flex-1 flex flex-col gap-4">
                             <div className="rounded-4xl aspect-video w-full bg-foreground"></div>
+                            <div className="flex [&>div]:bg-foreground gap-4 [&>div]:flex-1 [&>div]:rounded-4xl h-full">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
-                        <div className="flex-1 flex-col gap-3 flex">
-                            <h5 className="text-muted-foreground font-medium">
-                                CHRISTMAS
-                            </h5>
-                            <h1 className="text-3xl font-heading">
-                                Christmas Tree pouch
-                            </h1>
+
+                        {/* Product Information Section */}
+                        <div className="flex-1 flex flex-col gap-6">
+                            {/* Product Header */}
+                            <div className="flex flex-col gap-4">
+                                <h5 className="text-muted-foreground font-medium">
+                                    CHRISTMAS
+                                </h5>
+                                <h1 className="text-3xl font-heading">
+                                    Christmas Tree pouch
+                                </h1>
+                            </div>
+
+                            {/* Rating Section */}
                             <div className="flex gap-4 items-center">
                                 <StarRating rating={4.5} />
                                 <div className="flex items-center gap-2">
@@ -124,93 +143,101 @@ export default function ItemScreen() {
                                     </AnimatedSpan>
                                 </div>
                             </div>
-                            <AnimatedSpan
-                                className="font-heading text-4xl"
-                                delay={0.4}>
-                                <sup className="font-bold">₦</sup>{" "}
-                                {(1200).toFixed(2)}
-                            </AnimatedSpan>
-                            <p className="text-muted-foreground w-md text-sm">
-                                Experience the magic of the holiday season with
-                                our beautifully crafted Christmas Tree Pouch.
-                            </p>
-                            <div className="flex gap-4">
-                                <div className="flex flex-col gap-3">
+
+                            {/* Price Section */}
+                            <div className="flex flex-col gap-4">
+                                <AnimatedSpan
+                                    className="font-heading text-4xl"
+                                    delay={0.4}>
+                                    <sup className="font-bold">₦</sup>{" "}
+                                    {(1200).toFixed(2)}
+                                </AnimatedSpan>
+                                <p className="text-muted-foreground w-md text-sm">
+                                    Experience the magic of the holiday season
+                                    with our beautifully crafted Christmas Tree
+                                    Pouch.
+                                </p>
+                            </div>
+
+                            {/* Product Options Section */}
+                            <div className="flex gap-6">
+                                {/* Variant Selection */}
+                                <div className="flex flex-col gap-4">
                                     <h5 className="font-bold">
                                         Choose your variant
                                     </h5>
-                                    <div>
-                                        <Select
-                                            value={selectedVariant}
-                                            onValueChange={setSelectedVariant}>
-                                            <SelectTrigger className="w-[200px] rounded-full bg-primary-foreground text-foreground border-none">
-                                                <SelectValue placeholder="Select variant" />
-                                            </SelectTrigger>
-                                            <SelectContent className="border-0 rounded-3xl p-2">
-                                                <SelectItem
-                                                    value="red"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Red
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="green"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Green
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="blue"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Blue
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="gold"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Gold
-                                                </SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
+                                    <Select
+                                        value={selectedVariant}
+                                        onValueChange={setSelectedVariant}>
+                                        <SelectTrigger className="w-[200px] rounded-full bg-primary-foreground text-foreground border-none">
+                                            <SelectValue placeholder="Select variant" />
+                                        </SelectTrigger>
+                                        <SelectContent className="border-0 rounded-3xl p-2">
+                                            <SelectItem
+                                                value="red"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Red
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="green"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Green
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="blue"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Blue
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="gold"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Gold
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
-                                <div className="flex flex-col gap-3">
+
+                                {/* Size Selection */}
+                                <div className="flex flex-col gap-4">
                                     <h5 className="font-bold">
                                         Choose your size
                                     </h5>
-                                    <div>
-                                        <Select
-                                            value={selectedSize}
-                                            onValueChange={setSelectedSize}>
-                                            <SelectTrigger className="w-[200px] rounded-full bg-primary-foreground text-foreground border-none">
-                                                <SelectValue placeholder="Select size" />
-                                            </SelectTrigger>
-                                            <SelectContent className="border-0 rounded-3xl p-2">
-                                                <SelectItem
-                                                    value="small"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Small
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="medium"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Medium
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="large"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Large
-                                                </SelectItem>
-                                                <SelectItem
-                                                    value="xlarge"
-                                                    className="rounded-full hover:!bg-foreground hover:!text-background px-4">
-                                                    Extra Large
-                                                </SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
+                                    <Select
+                                        value={selectedSize}
+                                        onValueChange={setSelectedSize}>
+                                        <SelectTrigger className="w-[200px] rounded-full bg-primary-foreground text-foreground border-none">
+                                            <SelectValue placeholder="Select size" />
+                                        </SelectTrigger>
+                                        <SelectContent className="border-0 rounded-3xl p-2">
+                                            <SelectItem
+                                                value="small"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Small
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="medium"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Medium
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="large"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Large
+                                            </SelectItem>
+                                            <SelectItem
+                                                value="xlarge"
+                                                className="rounded-full hover:!bg-foreground hover:!text-background px-4">
+                                                Extra Large
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
                             </div>
-                            <div className="gap-3 flex flex-col">
+
+                            {/* Quantity Section */}
+                            <div className="flex flex-col gap-4">
                                 <h5 className="font-bold">Quantity</h5>
-                                <div className="gap-4 flex w-min items-center rounded-full p-1 bg-primary-foreground">
+                                <div className="flex w-min items-center gap-4 rounded-full p-1 bg-primary-foreground">
                                     <Button
                                         variant="ghost"
                                         className="hover:bg-foreground hover:text-background cursor-pointer rounded-full w-8 h-8 text-xs">
@@ -224,15 +251,17 @@ export default function ItemScreen() {
                                     </Button>
                                 </div>
                             </div>
-                            <Button className="p-8 rounded-full w-sm">
-                                Add to Cart
-                            </Button>
-                            <div></div>
+
+                            {/* Add to Cart Button */}
+                            <div className="flex flex-col gap-4">
+                                <Button className="p-8 rounded-full w-sm">
+                                    Add to Cart
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </section>
-            </div>
-            <Footer />
+            </main>
         </>
     );
 }
