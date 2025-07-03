@@ -11,13 +11,13 @@ export default function Home() {
     return (
         <>
             <Header />
-            <main className="p-16 py-8 flex flex-col items-center w-full [&>section]:w-full">
+            <main className="px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 lg:py-12 flex flex-col items-center w-full [&>section]:w-full">
                 <section>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="rounded-3xl from-accent to-secondary-foreground to-100% flex flex-col items-center justify-center px-16 h-[65dvh]">
+                        className="rounded-3xl from-accent to-secondary-foreground to-100% flex flex-col items-center justify-center px-2 sm:px-8 md:px-12 lg:px-16 h-[65dvh]">
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,9 @@ export default function Home() {
                                     placeholder="Search products..."
                                     className="rounded-full h-12 shadow-none focus-visible:ring-0 text-foreground border-none"
                                 />
-                                <Button className="rounded-full h-full hover:opacity-90">Search</Button>
+                                <Button className="rounded-full h-full hover:opacity-90">
+                                    Search
+                                </Button>
                             </div>
                         </motion.div>
                         <motion.div
@@ -62,7 +64,7 @@ export default function Home() {
                         </motion.div>
                     </motion.div>
                 </section>
-                <section className="py-16">
+                <section className="py-8 sm:py-12 md:py-16">
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-col gap-2">
                             <AnimatedHeading
@@ -72,7 +74,7 @@ export default function Home() {
                                 Explore Our Categories
                             </AnimatedHeading>
                         </div>
-                        <div className="grid grid-cols-5 gap-8">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
                             {[
                                 {
                                     name: "Clothing",
@@ -122,18 +124,19 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="py-8">
+                <section className="py-6 sm:py-8 md:py-10">
                     <AnimatedHeading
                         as="h2"
                         className="text-3xl font-bold"
                         delay={0.2}>
                         Popular
                     </AnimatedHeading>
-                    <div className="flex justify-between h-max py-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 w-full h-max py-4 sm:py-6 md:py-8 gap-4 sm:gap-6 md:gap-8 justify-between">
                         {[1, 2, 3, 4].map((_, i) => (
                             <ShopItem
                                 name="Clothing"
                                 id={`item-${i}`}
+                                key={i}
                                 image="/"
                                 price={1200}
                                 rating={4.5}

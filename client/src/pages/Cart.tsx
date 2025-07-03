@@ -30,45 +30,11 @@ export default function Cart() {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1 w-full py-8 px-16">
+            <main className="flex-1 w-full py-4 px-16">
                 <section className="flex flex-col gap-4">
-                    {/* <AnimatePresence>
-                        {showMessage && (
-                            <motion.div
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="relative p-2 px-2 md:px-4 rounded-full bg-secondary-foreground text-background">
-                                <div className="flex items-center justify-between px-2 md:px-4">
-                                    <div className="flex items-center gap-2 md:gap-3">
-                                        <AnimatedText className="text-xs md:text-sm flex gap-1 md:gap-2 items-center">
-                                            <i className="fa-solid fa-info-circle"></i>
-                                            <span>
-                                                Want to sell items instead?
-                                                Click{" "}
-                                                <Link
-                                                    to="#"
-                                                    className="underline font-medium">
-                                                    Here
-                                                </Link>
-                                                .
-                                            </span>
-                                        </AnimatedText>
-                                    </div>
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="rounded-full hover:bg-background/20 hover:text-background"
-                                        onClick={() => setShowMessage(false)}>
-                                        <i className="fa-solid fa-xmark"></i>
-                                    </Button>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence> */}
-                    <div className="py-24 flex justify-center items-center">
+                    {/* <div className="py-24 flex justify-center items-center">
                         <h1 className="text-4xl font-heading uppercase">Shopping Cart</h1>
-                    </div>
+                    </div> */}
                     <h1 className="text-xl font-bold">Your Cart</h1>
                     <div className="flex justify-between gap-8 relative">
                         <div className="w-full flex flex-col gap-4">

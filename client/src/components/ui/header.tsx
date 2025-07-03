@@ -48,7 +48,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="py-4 sticky bg-background top-0 z-50 w-full">
-            <div className="mx-16 px-4 py-4 bg-primary-foreground rounded-3xl h-full flex items-center justify-between">
+            <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-16 px-2 sm:px-4 md:px-8 py-2 sm:py-4 bg-primary-foreground rounded-3xl h-full flex items-center justify-between">
                 {/* Logo */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

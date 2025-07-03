@@ -25,7 +25,7 @@ export default function CategoryBar<const T extends readonly string[]>({
         className
       )}
     >
-      <div className="p-2 md:p-4 w-full flex flex-wrap justify-center md:justify-between gap-2 rounded-3xl bg-primary-foreground">
+      <div className="p-2 md:p-4 w-full flex flex-wrap justify-center md:justify-between gap-2 rounded-full bg-primary-foreground">
         {categories.map((category, index) => (
           <motion.div
             key={category}
